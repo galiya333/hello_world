@@ -1,0 +1,38 @@
+var str = 'The lonely sail is showing white Among the haze of the blue sea! What does it search in foreign part? What left it in the native land?';
+var stringInLowerCase = str.toLowerCase();
+// Сделать все буквы текста строчными
+var arrayFromString = stringInLowerCase.split('');
+//Создание массива из заданного текста. Каждый элемент массива  - один символ.
+
+function makeArrayWithoutSpaces(arrayFromString){
+    var arrayWithoutSpaces = arrayFromString;
+    arrayWithoutSpaces.forEach(function(item,i,arrayWithoutSpaces) {
+        if ((arrayWithoutSpaces[i] == ' ') || (arrayWithoutSpaces[i] == ',') || (arrayWithoutSpaces[i] == '.')|| (arrayWithoutSpaces[i] == '?')|| (arrayWithoutSpaces[i] == '!')){
+            arrayWithoutSpaces.splice(i,1);
+        }        
+    });
+    return arrayWithoutSpaces;
+}
+//Удаляет пробелы и знаки препинания из массива
+var arr2 = makeArrayWithoutSpaces(arrayFromString);
+
+var newWordsThreeSymbols = ['the', 'and']
+var newNumbersThreeSymbols = [30, 31]
+function changeSymbols(arr2){
+    var arrayWithNewSymbols = arr2;
+    for (var i = 0; i < arr2.length; i++){
+        var threeSymbols = arr2[i] + arr2[i+1] + arr2[i+2]
+        if (threeSymbols == newWordsThreeSymbols[0]){
+            threeSymbols = newNumbersThreeSymbols[0];
+            arrayWithNewSymbols[i] = threeSymbols;
+            arrayWithNewSymbols.splice(i+1,2);
+        }                
+    }
+    return arrayWithNewSymbols;
+}
+// Заменяет последовательность букв "the" в массиве на цифру 30
+
+var arr3 = changeSymbols(arr2);
+console.log(arr3);
+// выводит получившийся код в консоль
+//продолжение следует...
